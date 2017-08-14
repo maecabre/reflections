@@ -1,0 +1,51 @@
+// lesson_2_reflections.txt
+// Mario Cabrera
+
+// ------------------------------------------------------------------------------------------------
+
+Some Git commands:
+
+	git init 									// Makes current directory a new git repository
+	
+	git clone git_repository_name				// Clones entire git repository(including past commits) in current directory
+
+	git log 									// Displays all commits of the current repository you're in
+												// Not all commits may be shown, use the arrow keys to scroll downs
+												// type "q" to exit
+
+	git diff commit_id_1 commit_id_2			// Compare two different commits
+												// type "q" to exit
+
+	git config --global color.ui auto			// Colorize git diff changes
+
+	git checkout commit_id 						// Changes the repository to a past commit
+
+	git checkout master							// Changes teh repository back to the HEAD
+
+	git status									// Shows which files have changes since last commit
+												// Also shows files that are in the staging area
+
+	git add file_name_1 file_name_2 etc.		// All files added to the staging area are ready to be committed
+
+
+// ------------------------------------------------------------------------------------------------
+
+What happens when you initialize a repository? Why do you need to do it?
+
+	- You first need to initialize a repository because not all directories need to be tracked using git.
+	Only directories you choose can be a git repository.
+
+
+// ------------------------------------------------------------------------------------------------
+
+How is the staging area different from the working directory and the repository?
+What value do you think it offers?
+
+	- The working directory contains any and all files within your current snapshot withing git.
+	The snapshot can be changed or modified, the changes will only be saved when they are committed to git.
+	- The staging area contains specific files within your working directory. Anything inside the staging area
+	will be saved to git when committed.
+	- The repository contains all commits made to the working directory, which can be used to navigate from
+	commit to commit.
+
+
