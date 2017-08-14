@@ -1,0 +1,103 @@
+// lesson_1_reflections.txt
+// Mario Cabrera
+// The lesson from Udacity also has instructions to set up a git workspace
+
+// ------------------------------------------------------------------------------------------------
+Lesson #1: Compare two files (old code & new code) by using the command prompt or gitbash.
+
+	Command Prompt:	FC file_name_1 file_name_2
+	Gitbash:		diff -u file_name_1 file_name_2
+
+// ------------------------------------------------------------------------------------------------
+
+Some Git commands:
+
+	git init 									// Makes current directory a new git repository
+	
+	git clone git_repository_name				// Clones entire git repository(including past commits) in current directory
+
+	git log 									// Displays all commits of the current repository you're in
+												// Not all commits may be shown, use the arrow keys to scroll downs
+												// type "q" to exit
+
+	git diff commit_id_1 commit_id_2			// Compare two different commits
+												// type "q" to exit
+
+	git config --global color.ui auto			// Colorize git diff changes
+
+	git checkout commit_id 						// Changes the repository to a past commit
+
+	git checkout master							// Changes teh repository back to the HEAD
+
+	git status									// Shows which files have changes since last commit
+
+
+// ------------------------------------------------------------------------------------------------
+
+How did viewing a diff between two versions help you spot a bug??
+
+	- Viewing between two versions helps spot the differences between the files line by line.
+	This helps spot differences between code that is working, and code that isn't.
+
+// ------------------------------------------------------------------------------------------------
+
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+	- If you want to make revisions or rewrite code, having the entire history of the file saved
+	prevents you from breaking the code in any way without being able to go back to a working revision.
+	It's basically like a re-do button for your file in case you want to go back to something in your code.
+
+
+// ------------------------------------------------------------------------------------------------
+
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git,
+	vs having versions automatically saved, like Google Docs does?
+
+	Manual Commits:
+	
+		Pros:	- Meaningful commits
+				- Flexible commits and changes
+
+		Cons:	- User may be forgetful
+				- Commits may be too big or too small based on user judgement
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others,
+	like Google Docs, treat each file separately?
+
+	- Saving multiple files in a single commit is useful when all these files depend on each other.
+	If multiple files are changed in order to add a single feature, or fix a single bug, then all
+	files need to be committed. There is no need to breakdown a new feature or a bug fix into several
+	commits.
+
+
+// ------------------------------------------------------------------------------------------------
+
+How can you use the commands git log and git diff to view the history of files?
+
+	- git log opens up the history of all the commits that have been made in the repository
+	along with all the commit messages
+	- git diff requires two git commit id's which are shown when git log is used.
+	- Both commands go hand in hand because you need the commit id's from git log to compare files
+	using git diff
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+How might using version control make you more confident to make changes that could break something?
+
+	- With version control I can experiment with my code in any way possible without the worry of
+	permantly breaking my code.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+	- I want to use git for all of my computer programs and projects. This makes things very
+	easy to code and try new features without risking breaking my code permanently.
