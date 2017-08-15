@@ -18,14 +18,55 @@ Some Git commands:
 
 	git config --global color.ui auto			// Colorize git diff changes
 
-	git checkout commit_id 						// Changes the repository to a past commit
+	git checkout commit_id 						// Changes the working directory to a past commit
 
-	git checkout master							// Changes teh repository back to the HEAD
+	git checkout master							// Changes the working directory to the HEAD
 
 	git status									// Shows which files have changes since last commit
 												// Also shows files that are in the staging area
 
 	git add file_name_1 file_name_2 etc.		// All files added to the staging area are ready to be committed
+
+	git commit -m "Commit message"				// Commits everything in the staging area with the specified message
+
+	git diff 									// Compares files between the working directory and the staging area
+
+	git diff --staged							// Compares files between the staging area and the most recent commit
+												// in the repository
+
+	git reset --hard							// Discards everything in staging area
+												// Discards all changes made to the working directory
+												// NO WAY TO GET CHANGES BACK
+
+	git branch									// Lists all branches, and which branch you are in
+
+	git branch branch_name						// Creates a branch called branch_name from your current place
+												// in the repository
+
+	git checkout branch_name					// Changes working directory to that branch
+
+	git log --graph branch_1 branch_2			// visually see the graph of the branches
+
+	git log --graph --oneline branch_1 branch_2 // Same as above but easier graph to look at
+
+	git checkout -b branch_name					// Creates a new branch called branch_name
+												// and then checks out that branch, so any further commits
+												// will be on that branch.
+
+	git merge branch_1 branch_2					// Merges two branch_1 stuff into branch_2 stuff
+												// Note the you want to be in branch_1 or in branch_2 afterwards
+
+	git commit 									// After solving a merge conflict, no custom commit message is needed
+
+	git merge --Abort							// Abort merge
+
+	git show commit_id							// exactly like git diff, but with commit_id and its
+												// parent commit
+
+	git branch -d branch_name					// Deletes branch name
+												// WARNING! MERGE BEFORE DELETING BRANCH, makes things easier
+
+	got log -n some_number						// git log will only show some_number of commits
 
 
 // ------------------------------------------------------------------------------------------------
@@ -49,3 +90,139 @@ What value do you think it offers?
 	commit to commit.
 
 
+
+// ------------------------------------------------------------------------------------------------
+
+How can you use the staging area to make sure you have one commit per logical change?
+
+	- Every time a logical change is made, only the files that have been modified really need to be committed.
+	So in order to commit those specific files, only those need to be added into the staging area.
+	This tailors specific files to specific commits.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+
+	- Adding new features or different features without affecting the final project.
+	- Fixing large bugs that would require multiple commits.
+	- Experimentation with the code.
+	- Creating different working versions of the code.
+
+// ------------------------------------------------------------------------------------------------
+
+How do the diagrams help you visualize the branch structure?
+
+	- The diagrams paint a picture and what branches have been created, what commits are reachable,
+	and what commits have been made in each branch.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+
+	- Merging two branches together adds any code that was previously not in the original,
+	deletes any code that was deleted in either of the branches, and retains code that is in
+	both branches. (More or less)
+	- We represent it the way we do to have access to both paths to any past commits made.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+
+	Automatic Merging
+
+		Pros:	- Merging can sometimes be easy and painless
+				- More likely to create new branches and merge them later
+				- Allows a lot of room for flexibility in the final level-product
+
+		Cons:	- Merge conflicts can happen and can result in broken code if not resolved
+				- Broken code can be very annoying and confusing to fix depending on what was changed
+				and by who.
+
+	Manual Merging
+
+		Pros:	- Full absolute control over merges
+				- Nothing is done without someone knowing exactly how the code is merged
+
+		Cons:	- All parties may want to know what the conflicts are which can take time to resolve.
+				- Merging will always require extra time to prevent conflicts.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+Current diagram prediction
+
+* de44e08 Asteroids break into 2 smaller asteroids, not 3		// This is actually another branch
+* b6ac322 Added the bullet delay
+* 3884eab Add color
+* 3e42136 now using requestAnimationFrame
+* 4035769 frame interval was set wrong after game was paused
+* 25ede83 a couple missing ends with the ipad version
+* df03538 I can't spell 'screen' apparently :)
+| * 354dfdd Make ships able to spawn on coins
+| * 0c6daf1 Make it possible to collect coins
+| * a3c0ae4 Create helper functions
+| * 656b02e First pass at adding coins
+|/
+* b0678b1 Revert controls
+* f19cb1b Fix typo in space
+
+
+// ------------------------------------------------------------------------------------------------
+
+Merging easy-mode branch prediction
+
+* d3f627b Make coins yellow
+|\
+| \
+| * de44e08 Asteroids break into 2 smaller asteroids, not 3
+* | c4b939f Merge branch 'coins'
+|\|
+| |\
+| | \
+| | * 354dfdd Make ships able to spawn on coins
+| | * 0c6daf1 Make it possible to collect coins
+| | * a3c0ae4 Create helper functions
+| | * 656b02e First pass at adding coins
+| | |
+| | |
+|/  |
+*   | b6ac322 Added the bullet delay
+*   | 3884eab Add color
+*   | 3e42136 now using requestAnimationFrame
+*   | 4035769 frame interval was set wrong after game was paused
+*   | 25ede83 a couple missing ends with the ipad version
+*   | df03538 I can't spell 'screen' apparently :)
+| /
+|/
+* b0678b1 Revert controls
+* f19cb1b Fix typo in space
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+// Merges master into easy-mode
+
+Mario Cabrera (easy-mode) asteroids $ git merge master easy-mode
+
+
+	<<<<<<< HEAD
+		Easy-mode code from easy-mode branch
+
+	||||||| merged common ancestors
+		Original Code before any branch
+
+	=======
+		Master code from master branch
+
+	>>>>>>> master
