@@ -66,7 +66,16 @@ Some Git commands:
 	git branch -d branch_name					// Deletes branch name
 												// WARNING! MERGE BEFORE DELETING BRANCH, makes things easier
 
-	got log -n some_number						// git log will only show some_number of commits
+	git log -n some_number						// git log will only show some_number of commits
+
+	git remote									// View all current remotes (set of repositories)
+
+	git remote -v 								// View all current remotes with more info
+												// shows URL you'd fetch data from
+												// shows URL you'd push data to
+
+	git push remote_name branch_name			// Pushes branch to URL
+												// usually the command is "git push origin master"
 
 
 // ------------------------------------------------------------------------------------------------
