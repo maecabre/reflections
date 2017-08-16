@@ -1,0 +1,84 @@
+// lesson_2_reflections.txt
+// Mario Cabrera
+
+// ------------------------------------------------------------------------------------------------
+
+Some Git commands:
+
+	git init									// Makes current directory a new git repository
+	
+	git clone git_repository_name				// Clones entire git repository(including past commits) in current directory
+
+	git log										// Displays all commits of the current repository you're in
+												// Not all commits may be shown, use the arrow keys to scroll downs
+												// type "q" to exit
+
+	git diff commit_id_1 commit_id_2			// Compare two different commits
+												// type "q" to exit
+
+	git config --global color.ui auto			// Colorize git diff changes
+
+	git checkout commit_id						// Changes the working directory to a past commit
+
+	git checkout master							// Changes the working directory to the HEAD
+
+	git status									// Shows which files have changes since last commit
+												// Also shows files that are in the staging area
+
+	git add file_name_1 file_name_2 etc.		// All files added to the staging area are ready to be committed
+
+	git commit -m "Commit message"				// Commits everything in the staging area with the specified message
+
+	git diff 									// Compares files between the working directory and the staging area
+
+	git diff --staged							// Compares files between the staging area and the most recent commit
+												// in the repository
+
+	git reset --hard							// Discards everything in staging area
+												// Discards all changes made to the working directory
+												// NO WAY TO GET CHANGES BACK
+
+	git branch									// Lists all branches, and which branch you are in
+
+	git branch branch_name						// Creates a branch called branch_name from your current place
+												// in the repository
+
+	git checkout branch_name					// Changes working directory to that branch
+
+	git log --graph branch_1 branch_2			// visually see the graph of the branches
+
+	git log --graph --oneline branch_1 branch_2 // Same as above but easier graph to look at
+
+	git checkout -b branch_name					// Creates a new branch called branch_name
+												// and then checks out that branch, so any further commits
+												// will be on that branch.
+
+	git merge branch_1 branch_2					// Merges two branch_1 stuff into branch_2 stuff
+												// Note the you want to be in branch_1 or in branch_2 afterwards
+
+	git commit 									// After solving a merge conflict, no custom commit message is needed
+
+	git merge --Abort							// Abort merge
+
+	git show commit_id							// exactly like git diff, but with commit_id and its
+												// parent commit
+
+	git branch -d branch_name					// Deletes branch name
+												// WARNING! MERGE BEFORE DELETING BRANCH, makes things easier
+
+	git log -n some_number						// git log will only show some_number of commits
+
+	git remote									// View all current remotes (set of repositories)
+
+	git remote -v 								// View all current remotes with more info
+												// shows URL you'd fetch data from
+												// shows URL you'd push data to
+
+	git push remote_name branch_name			// Pushes branch to URL
+												// usually the command is "git push origin master"
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+
